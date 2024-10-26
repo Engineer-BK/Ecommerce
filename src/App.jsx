@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Collection from "./pages/Collection";
 import About from "./pages/About";
@@ -23,6 +23,7 @@ const App = () => {
       <SearchBar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/Ecommerce" element={<Home />} />
         <Route path="/collection" element={<Collection />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
@@ -31,6 +32,9 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/place-order" element={<PlaceOrder />} />
         <Route path="/orders" element={<Orders />} />
+        {/* Default route */}
+        <Route path="*" element={<Navigate to="/" />} />
+        {/* Redirect to Home */}
       </Routes>
       <Footer />
     </div>
